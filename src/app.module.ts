@@ -9,6 +9,9 @@ import componentLoader from './admin/component-loader.js';
 import { Bank } from './entities/Bank.entity.js';
 import { Account } from './entities/Account.entity.js';
 import { TransactionHistory } from './entities/TransactionHistory.js';
+import bankResource from './resources/bank.resource.js';
+import accountResource from './resources/account.resource.js';
+import transactionHistoryResource from './resources/transaction-history.resource.js';
 
 AdminJS.registerAdapter({
   Resource: AdminJSTypeorm.Resource,
@@ -45,9 +48,18 @@ AdminJS.registerAdapter({
             componentLoader,
             rootPath: '/admin',
             resources: [
-              Bank,
-              Account,
-              TransactionHistory
+              {
+                resource: Bank,
+                options: bankResource
+              },
+              {
+                resource: Account,
+                options: accountResource
+              },
+              {
+                resource: TransactionHistory,
+                options: transactionHistoryResource
+              }
             ],
             branding: {
               companyName: 'Lookup Admin',
