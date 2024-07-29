@@ -14,9 +14,16 @@ export class TransactionHistory extends Base {
   status: String
 
   @Column()
-  accountId: Relation<Account>
+  issuerAccountId: Relation<Account>
 
-  @ManyToOne(() => Account)
+  @Column()
+  publisherAccountId: Relation<Account>
+
+  @ManyToOne(() => Account, account => account.transactionHistories)
   @JoinColumn()
-  account: Relation<Account>
+  issuerAccount: Relation<Account>
+
+  @ManyToOne(() => Account, account => account.transactionHistories)
+  @JoinColumn()
+  publisherAccount: Relation<Account>
 }
