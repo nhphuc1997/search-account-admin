@@ -11,6 +11,12 @@ export class Account extends Base {
   @Column({ nullable: false })
   accountDigit: string
 
+  @Column({ nullable: false, unique: true })
+  phoneNUmber: string
+
+  @Column({ nullable: false, unique: true })
+  idCard: string
+
   @Column({ nullable: false })
   accountName: string
 
@@ -23,8 +29,4 @@ export class Account extends Base {
   @ManyToOne(() => Bank)
   @JoinColumn()
   bank: Relation<Bank>
-
-  @OneToMany(() => TransactionHistory, transactionHistory => transactionHistory.issuerAccount)
-  @JoinColumn()
-  transactionHistories: Relation<TransactionHistory[]>
 }

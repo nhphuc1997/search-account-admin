@@ -1,8 +1,7 @@
 import {
-  Column, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn, Relation
+  Column, Entity, PrimaryGeneratedColumn
 } from "typeorm";
 import { Base } from "./Base.entity.js";
-import { Account } from "./Account.entity.js";
 
 @Entity('banks')
 export class Bank extends Base {
@@ -11,8 +10,4 @@ export class Bank extends Base {
 
   @Column({ nullable: true })
   name: string
-
-  @OneToMany(() => Account, account => account.bank)
-  @JoinColumn()
-  accounts: Relation<Account[]>
 }

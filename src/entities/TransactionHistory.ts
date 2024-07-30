@@ -7,23 +7,23 @@ export class TransactionHistory extends Base {
   @PrimaryGeneratedColumn()
   id: number
 
-  @Column({ type: Number })
-  amount: Number
-
-  @Column({ type: String })
-  status: String
+  @Column()
+  amount: number
 
   @Column()
-  issuerAccountId: Relation<Account>
+  status: string
 
   @Column()
-  publisherAccountId: Relation<Account>
+  senderAccountId: Relation<Account>
 
-  @ManyToOne(() => Account, account => account.transactionHistories)
-  @JoinColumn()
-  issuerAccount: Relation<Account>
+  @Column()
+  retrieverAccountId: Relation<Account>
 
-  @ManyToOne(() => Account, account => account.transactionHistories)
+  @ManyToOne(() => Account, account => account)
   @JoinColumn()
-  publisherAccount: Relation<Account>
+  senderAccount: Relation<Account>
+
+  @ManyToOne(() => Account, account => account)
+  @JoinColumn()
+  retrieverAccount: Relation<Account>
 }
