@@ -10,10 +10,10 @@ export class Account extends Base {
   @Column({ nullable: false })
   accountDigit: string
 
-  @Column({ nullable: false, unique: true })
+  @Column({ nullable: false })
   phoneNumber: string
 
-  @Column({ nullable: false, unique: true })
+  @Column({ nullable: false })
   idCard: string
 
   @Column({ nullable: false })
