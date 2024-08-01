@@ -14,6 +14,8 @@ import accountResource from './resources/account.resource.js';
 import transactionHistoryResource from './resources/transaction-history.resource.js';
 import { Warning } from './entities/Warning.entity.js';
 import warningResource from './resources/warning.resource.js';
+import { VerifyCode } from './entities/VerifyCode.entity.js';
+import verifyCodeResource from './resources/verify-code.resource.js';
 
 AdminJS.registerAdapter({
   Resource: AdminJSTypeorm.Resource,
@@ -39,7 +41,8 @@ AdminJS.registerAdapter({
           Bank,
           Account,
           TransactionHistory,
-          Warning
+          Warning,
+          VerifyCode
         ],
         synchronize: true,
       })
@@ -66,7 +69,11 @@ AdminJS.registerAdapter({
               {
                 resource: Warning,
                 options: warningResource
-              }
+              },
+              {
+                resource: VerifyCode,
+                options: verifyCodeResource
+              },
             ],
             branding: {
               companyName: 'Lookup Admin',
