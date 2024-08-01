@@ -7,20 +7,26 @@ export class Account extends Base {
   @PrimaryGeneratedColumn()
   id: number
 
-  @Column({ nullable: false })
+  @Column({ nullable: true })
   accountDigit: string
 
-  @Column({ nullable: false })
+  @Column({ nullable: true })
   phoneNumber: string
 
-  @Column({ nullable: false })
+  @Column({ nullable: true })
   idCard: string
 
-  @Column({ nullable: false })
+  @Column({ nullable: true })
   accountName: string
 
-  @Column({ nullable: false })
+  @Column({ nullable: true })
   amountLocked: string
+
+  @Column({ nullable: true })
+  amount: string
+
+  @Column({ nullable: true })
+  status: string
 
   @Column()
   bankId: Relation<Bank>
