@@ -12,6 +12,8 @@ import { TransactionHistory } from './entities/TransactionHistory.js';
 import bankResource from './resources/bank.resource.js';
 import accountResource from './resources/account.resource.js';
 import transactionHistoryResource from './resources/transaction-history.resource.js';
+import { Warning } from './entities/Warning.entity.js';
+import warningResource from './resources/warning.resource.js';
 
 AdminJS.registerAdapter({
   Resource: AdminJSTypeorm.Resource,
@@ -36,7 +38,8 @@ AdminJS.registerAdapter({
         entities: [
           Bank,
           Account,
-          TransactionHistory
+          TransactionHistory,
+          Warning
         ],
         synchronize: true,
       })
@@ -59,6 +62,10 @@ AdminJS.registerAdapter({
               {
                 resource: TransactionHistory,
                 options: transactionHistoryResource
+              },
+              {
+                resource: Warning,
+                options: warningResource
               }
             ],
             branding: {
