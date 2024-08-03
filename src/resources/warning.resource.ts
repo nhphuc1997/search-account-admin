@@ -1,9 +1,9 @@
-const warningResource = {
+const notificationResource = {
   properties: {
     content: {
-      type: 'richtext'
+      type: 'text'
     }
   },
 }
 
-export default warningResource;
+export default notificationResource;

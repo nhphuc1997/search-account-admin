@@ -3,8 +3,8 @@ import {
 } from "typeorm";
 import { Base } from "./Base.entity.js";
 
-@Entity('warnings')
-export class Warning extends Base {
+@Entity('notifications')
+export class Notification extends Base {
   @PrimaryGeneratedColumn()
   id: number
 

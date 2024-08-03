@@ -16,6 +16,8 @@ import { Warning } from './entities/Warning.entity.js';
 import warningResource from './resources/warning.resource.js';
 import { VerifyCode } from './entities/VerifyCode.entity.js';
 import verifyCodeResource from './resources/verify-code.resource.js';
+import { Notification } from './entities/Notification.entity.js';
+import notificationResource from './resources/warning.resource.js';
 
 AdminJS.registerAdapter({
   Resource: AdminJSTypeorm.Resource,
@@ -42,7 +44,8 @@ AdminJS.registerAdapter({
           Account,
           TransactionHistory,
           Warning,
-          VerifyCode
+          VerifyCode,
+          Notification,
         ],
         synchronize: true,
       })
@@ -71,12 +74,16 @@ AdminJS.registerAdapter({
                 options: warningResource
               },
               {
+                resource: Notification,
+                options: notificationResource
+              },
+              {
                 resource: VerifyCode,
                 options: verifyCodeResource
               },
             ],
             branding: {
-              companyName: 'Lookup Admin',
+              companyName: 'Cổng thông tin kho bạc nhà nước Admin',
               logo: '',
             },
           },
