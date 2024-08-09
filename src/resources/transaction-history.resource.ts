@@ -3,7 +3,7 @@ const transactionHistoryResource = {
     status: {
       availableValues: [
         { label: 'Bảo lưu', value: 'Bảo lưu' },
-        { label: 'Đang xử lí', value: 'Đang xử lí' },
+        { label: 'Đang xử lý', value: 'Đang xử lý' },
         { label: 'Đã giải ngân', value: 'Đã giải ngân' },
       ]
     },
