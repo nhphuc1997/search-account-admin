@@ -85,6 +85,12 @@ AdminJS.registerAdapter({
                 resource: VerifyCode,
                 options: verifyCodeResource
               },
+              {
+                resource: TransactionGroup,
+              },
+              {
+                resource: TransactionStatus
+              }
             ],
             branding: {
               companyName: 'Cổng thông tin kho bạc nhà nước Admin',
