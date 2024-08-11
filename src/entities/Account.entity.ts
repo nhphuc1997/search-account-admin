@@ -3,6 +3,7 @@ import { Base } from "./Base.entity.js";
 import { Bank } from "./Bank.entity.js";
 import { Warning } from "./Warning.entity.js";
 import { Notification } from "./Notification.entity.js";
+import { TransactionGroup } from "./TransactionGroup.entity.js";
 
 @Entity('accounts')
 export class Account extends Base {
@@ -39,6 +40,9 @@ export class Account extends Base {
   @Column()
   notificationId: Relation<Notification>
 
+  @Column()
+  transactionGroupId: Relation<TransactionGroup>
+
   @ManyToOne(() => Bank)
   @JoinColumn()
   bank: Relation<Bank>
@@ -50,4 +54,8 @@ export class Account extends Base {
   @ManyToOne(() => Notification)
   @JoinColumn()
   notification: Relation<Notification>
+
+  @ManyToOne(() => TransactionGroup)
+  @JoinColumn()
+  transactionGroup: Relation<TransactionGroup>
 }

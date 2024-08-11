@@ -8,16 +8,18 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import componentLoader from './admin/component-loader.js';
 import { Bank } from './entities/Bank.entity.js';
 import { Account } from './entities/Account.entity.js';
-import { TransactionHistory } from './entities/TransactionHistory.js';
 import bankResource from './resources/bank.resource.js';
 import accountResource from './resources/account.resource.js';
-import transactionHistoryResource from './resources/transaction-history.resource.js';
+import transactionHistoryResource from './resources/transaction.resource.js';
 import { Warning } from './entities/Warning.entity.js';
 import warningResource from './resources/warning.resource.js';
 import { VerifyCode } from './entities/VerifyCode.entity.js';
 import verifyCodeResource from './resources/verify-code.resource.js';
 import { Notification } from './entities/Notification.entity.js';
 import notificationResource from './resources/warning.resource.js';
+import { TransactionStatus } from './entities/TransactionStatus.entity.js';
+import { TransactionGroup } from './entities/TransactionGroup.entity.js';
+import { Transaction } from './entities/Transaction.entity.js';
 
 AdminJS.registerAdapter({
   Resource: AdminJSTypeorm.Resource,
@@ -40,12 +42,14 @@ AdminJS.registerAdapter({
         password: config.get<string>('DATABASE_PASSWORD'),
         database: config.get<string>('DATABASE_NAME'),
         entities: [
-          Bank,
           Account,
-          TransactionHistory,
-          Warning,
-          VerifyCode,
+          Bank,
           Notification,
+          Transaction,
+          TransactionGroup,
+          TransactionStatus,
+          VerifyCode,
+          Warning
         ],
         synchronize: true,
       })
@@ -66,7 +70,7 @@ AdminJS.registerAdapter({
                 options: accountResource
               },
               {
-                resource: TransactionHistory,
+                resource: Transaction,
                 options: transactionHistoryResource
               },
               {
