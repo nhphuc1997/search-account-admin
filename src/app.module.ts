@@ -59,7 +59,9 @@ AdminJS.registerAdapter({
         return {
           adminJsOptions: {
             componentLoader,
-            rootPath: '/admin',
+            rootPath: '/search/admin',
+            loginPath: '/search/admin/login',
+            logoutPath: '/search/admin/exit',
             resources: [
               {
                 resource: Bank,
